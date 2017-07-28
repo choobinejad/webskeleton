@@ -1,0 +1,2 @@
+from webskeleton.connections.google_maps import GoogleMaps
+from webskeleton.connections.jsonplaceholder import JsonPlaceHolder

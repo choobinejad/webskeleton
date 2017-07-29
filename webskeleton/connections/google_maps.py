@@ -4,10 +4,11 @@ from webskeleton.connections.serializers import echo_serializer as serializer
 
 class GoogleMaps(object):
 
-    def __init__(self, api_key_file):
+    def __init__(self, config, api_key_file):
 
         with open(api_key_file, 'r') as key:
             self.gmaps = googlemaps.Client(key=key.read()[:-1])
+        self.config = config
 
     def geocode_query(self, text):
         return self.gmaps.geocode(text)

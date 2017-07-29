@@ -1,6 +1,5 @@
 from webskeleton import GoogleMaps
 from webskeleton import JsonPlaceHolder
-import logging
 from webskeleton import Config
 
 
@@ -10,8 +9,9 @@ config = Config(app_name='my_app_name', working_directory='')
 
 
 connections = list()
-# connections.append(GoogleMaps('/etc/my_config/google.key'))
-connections.append(JsonPlaceHolder())
+# TODO If you want to use the GoogleMaps object, you need to get a Google Maps API key!
+# connections.append(GoogleMaps(config, '/etc/my_config/google.key'))
+connections.append(JsonPlaceHolder(config))
 
 for cx in connections:
     data = cx.run()

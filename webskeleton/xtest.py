@@ -4,6 +4,7 @@ from requests.exceptions import ConnectionError
 t = requests.Session()
 # t.cert = ('/path/to/cert.pem', '/path/to/key.pem')
 # t.verify = '/path/to/trust.pem'
+#openSSl convert pks12 to pem
 
 get_posts_url = 'https://jsonplaceholder.typicode.com/posts'
 bad_posts_url = 'https://jsonfdsfsplaceholder.typicode.com/poshfdjkfndsktsdnjsdn'

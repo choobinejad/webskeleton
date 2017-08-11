@@ -31,10 +31,16 @@ class JsonPlaceHolder(object):
 
     def run(self):
         futures = list()
-        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as e:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=50) as e:
             futures.append(e.submit(self.get_posts))
             futures.append(e.submit(self.get_todos))
             futures.append(e.submit(self.get_users))
             for future in concurrent.futures.as_completed(futures, timeout=10):
                 self.config.logger.info('finished a future')
+        return self.results
+
+    def run_linear(self):
+        self.get_posts()
+        self.get_todos()
+        self.get_users()
         return self.results

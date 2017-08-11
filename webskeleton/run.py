@@ -1,7 +1,9 @@
 from webskeleton import GoogleMaps
 from webskeleton import JsonPlaceHolder
 from webskeleton import Config
+from datetime import datetime
 
+startup = datetime.now().timestamp()
 
 # TODO Perhaps use a scheduler to manage when requests are executed.
 # TODO Within each connection, incorporate appropriate means of concurrent execution.
@@ -17,3 +19,5 @@ for cx in connections:
     data = cx.run()
     config.logger.info(data)
     # TODO Write your data to a file, message queue, or database.
+
+config.logger.info('Run duration: {} seconds.'.format(str(datetime.now().timestamp() - startup)))

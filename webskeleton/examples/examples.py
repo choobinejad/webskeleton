@@ -1,5 +1,14 @@
 import requests
+from datetime import datetime
 
+startup = datetime.utcnow()
+print('App startup: {}. Date: {}. Time: {}. ISO Format: {}. Epoch: {}'.format(
+    str(startup),
+    str(startup.date()),
+    str(startup.time()),
+    startup.isoformat(),
+    str(startup.timestamp())
+))
 
 # Get your zoo from an API
 certfile = '/path/to/my/cert/file.pem' # You PKI certificate signed by a CA
@@ -23,3 +32,22 @@ zoo = {
 # Filter your zoo
 good_animals = ['dog', 'cat']
 good_zoo = [v['name'] for k, v in zoo.items() if k.split(':')[1][:-1] in good_animals]
+
+
+
+
+
+data = [
+    dict(time=1505107660.903623, location=4),
+    dict(time=1505101660.903623, location=4),
+    dict(time=1505107660.903623, location=4),
+    dict(time=1505107660.903623, location=4),
+    dict(time=1505107630.903623, location=2),
+    dict(time=1505107460.903623, location=1),
+    dict(time=1505107660.903623, location=1),
+]
+
+#ndarray
+
+
+
